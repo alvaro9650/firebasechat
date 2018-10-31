@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">firebasechat</string>
+    <string name="message">Mensaje</string>
 </resources>
