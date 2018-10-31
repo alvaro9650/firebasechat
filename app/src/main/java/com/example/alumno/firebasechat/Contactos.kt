@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_contactos.*
 
+
+
 class Contactos : AppCompatActivity() {
     private var mFirebaseAnalytics: FirebaseAnalytics? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +15,11 @@ class Contactos : AppCompatActivity() {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
         // Example of a call to a native method
         sample_text.text = stringFromJNI()
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "sample_text")
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "sample_text")
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "text")
+        mFirebaseAnalytics!!.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
     }
 
     /**
